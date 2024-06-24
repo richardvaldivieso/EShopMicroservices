@@ -1,6 +1,5 @@
 using BuildingBlocks.CQRS;
 using Catalog.API.Models;
-using MediatR;
 
 namespace Catalog.API.Products.CreateProduct;
 
@@ -13,7 +12,7 @@ public record CreateProductCommand(
 
 public record CreateProductResult(Guid Id);
 
-internal class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
+public class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
